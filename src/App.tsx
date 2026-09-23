@@ -108,7 +108,7 @@ export default function App() {
           <p className="max-w-[390px] leading-[1.65]">{siteContent.introduction}</p>
           <p className="flex items-center gap-3 leading-[1.6] lg:justify-end lg:text-right">
             <span className="relative flex size-2 shrink-0" aria-hidden="true"><span className="absolute inset-0 rounded-full bg-[#64CEFB]/30 blur-[3px]" /><span className="relative size-2 rounded-full bg-[#9adfff]" /></span>
-            <span>8000+ Talented Designers <span className="whitespace-nowrap">Launched !</span></span>
+            <span>{siteContent.status}</span>
           </p>
         </div>
 
@@ -122,7 +122,7 @@ export default function App() {
               <span className="block">{siteContent.headline[0]}</span>
               <ShinyText text={siteContent.headline[1]} className="mt-3 block whitespace-nowrap pb-[0.12em] md:mt-4" paused={motionPaused} />
             </h1>
-            <button type="button" onClick={() => setPanel('enrollment')} className="group mt-8 inline-flex items-center gap-7 rounded-full border border-white/10 bg-black px-6 py-3 text-sm font-medium text-white transition-[background-color,border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-gray-900 md:mt-9 md:px-8 md:py-4">
+            <button type="button" onClick={() => setPanel('approach')} className="group mt-8 inline-flex items-center gap-7 rounded-full border border-white/10 bg-black px-6 py-3 text-sm font-medium text-white transition-[background-color,border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-gray-900 md:mt-9 md:px-8 md:py-4">
               {siteContent.cta}
               <ArrowRight size={19} strokeWidth={1.6} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </button>
@@ -130,9 +130,9 @@ export default function App() {
         </section>
 
         <footer className="hero-footer flex shrink-0 items-end justify-between border-t border-white/15 pb-6 pt-5 md:pb-7">
-          <p className="text-[10px] uppercase tracking-[0.13em] text-white/80 sm:text-[11px]">A new perspective starts here.</p>
+          <p className="max-w-[75%] text-[10px] uppercase tracking-[0.13em] text-white/80 sm:text-[11px]">{siteContent.footer}</p>
           <div className="flex items-center gap-5">
-            <span className="hidden text-[10px] uppercase tracking-[0.13em] text-white/80 sm:inline">Designed for what’s next</span>
+            <span className="hidden text-[10px] uppercase tracking-[0.13em] text-white/80 sm:inline">{siteContent.developmentStatus}</span>
             {!videoFailed && !reducedMotion && (
               <button type="button" onClick={() => setPaused(!paused)} aria-label={paused ? 'Play background animation' : 'Pause background animation'} aria-pressed={paused} className="flex size-8 items-center justify-center rounded-full border border-white/25 text-white/80 transition-colors hover:bg-white/10 hover:text-white">
                 {paused ? <Play size={11} fill="currentColor" aria-hidden="true" /> : <Pause size={11} fill="currentColor" aria-hidden="true" />}
@@ -142,7 +142,7 @@ export default function App() {
         </footer>
       </div>
 
-      <InfoDialog panel={panel} onClose={() => setPanel(null)} onApply={() => setPanel('enrollment')} />
+      <InfoDialog panel={panel} onClose={() => setPanel(null)} onNavigate={setPanel} />
     </main>
   )
 }

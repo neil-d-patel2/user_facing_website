@@ -20,8 +20,10 @@ npm run build
 
 ## Content
 
-The requested DesignPro wording is placeholder copy for SafeSock. Change the brand, copy, video URL, and navigation previews in `src/content.ts`.
+The landing page introduces SafeSock’s connected recovery direction: gait and weight-bearing insight, clinician workflows, and a simpler patient experience. Change the copy, video URL, and informational panels in `src/content.ts`.
 
-Only the landing page is implemented. Navigation items open lightweight preview dialogs; the enrollment button shows the upcoming enrollment announcement. There is no application backend, mailing-list submission, or invented contact address.
+Only the landing page is implemented. Navigation and the main button open informational dialogs. Remote visits, interactive 3D assessment, clinician selection, scheduling, and joint-loading estimates are explicitly described as planned capabilities. No patient data, bookings, contact submissions, or clinical assessments are collected by this site.
+
+[Product context and priorities](docs/product-context.md) records the reference repository, the requested clinical workflows, implementation challenges, and the recommended build order. The original video, typography, and animated hero design are preserved.
 
 `src/components/ShinyText.tsx` provides the reusable three-second, left-to-right gradient animation. The background video and shine can be paused together and respect the system’s reduced-motion preference. Inter is served locally through Fontsource.
