@@ -18,6 +18,21 @@ npm run build
 
 `npm run preview` serves the production build locally.
 
+## Deployment
+
+The live site is [neil-d-patel2.github.io/user_facing_website](https://neil-d-patel2.github.io/user_facing_website/).
+
+GitHub Pages uses GitHub Actions as its publishing source. Every push to `main` runs `.github/workflows/deploy.yml`, which installs the locked dependencies, checks the code, builds the app, and publishes `dist`. The workflow obtains the site's base path from GitHub Pages so scripts, styles, fonts, and the favicon load under the repository URL. Local development continues to use `/`.
+
+To verify the same build locally:
+
+```sh
+VITE_BASE_PATH=/user_facing_website/ npm run build
+VITE_BASE_PATH=/user_facing_website/ npm run preview
+```
+
+Then open `http://127.0.0.1:4173/user_facing_website/`.
+
 ## Content
 
 The landing page introduces SafeSock’s connected recovery direction: gait and weight-bearing insight, clinician workflows, and a simpler patient experience. Change the copy, video URL, and informational panels in `src/content.ts`.
