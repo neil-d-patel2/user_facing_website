@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter Variable', 'Inter', sans-serif;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: #fff;
+  background: #000;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 2px solid #64cefb;
+  outline-offset: 5px;
+}
+
+::selection {
+  background: #64cefb;
+  color: #000;
+}
+
+.hero {
+  height: 100svh;
+}
+
+.hero-overlay {
+  background: linear-gradient(180deg, rgb(0 0 0 / 18%) 0%, rgb(0 0 0 / 4%) 40%, rgb(0 0 0 / 6%) 70%, rgb(0 0 0 / 40%) 100%);
+}
+
+.video-fallback {
+  background: radial-gradient(ellipse at 80% 75%, #132a53 0%, #100b23 30%, #000 72%);
+}
+
+.shiny-text {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 1rem;
+  left: 1rem;
+  transform: translateY(-200%);
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  background: #fff;
+  color: #000;
+  transition: transform 180ms;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.info-dialog::backdrop {
+  background: rgb(0 0 0 / 65%);
+  backdrop-filter: blur(12px);
+}
+
+.info-dialog[open] {
+  animation: dialog-in 220ms ease-out;
+}
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 374px) {
+  .hero-heading { font-size: 2.65rem; }
+}
+
+@media (max-width: 639px) and (max-height: 700px) {
+  .hero { min-height: 568px; }
+  .hero header { padding-top: 1.25rem; }
+  .intro-row { margin-top: 1.5rem; gap: 1rem; }
+  .hero-content { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .hero-footer { padding-top: 0.75rem; padding-bottom: 1rem; }
+}
+
+@media (min-width: 1024px) and (max-height: 750px) {
+  .hero { min-height: 720px; }
+  .intro-row { margin-top: 2.25rem; }
+  .hero-content { padding-top: 1rem; padding-bottom: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .shiny-text {
+    background: none !important;
+    -webkit-text-fill-color: CanvasText !important;
+    color: CanvasText !important;
+  }
+}
